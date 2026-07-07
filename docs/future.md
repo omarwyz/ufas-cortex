@@ -1,1 +1,6 @@
-
+- Calendar
+- Notifications
+- Student Ranking
+- Gamification
+- Internship Resources
+- Research Section
