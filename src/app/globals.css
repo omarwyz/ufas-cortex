@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', system-ui, sans-serif;
+    --font-plus-jakarta: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+    /* Light mode colors */
+    --background: 255 255 255;
+    --foreground: 15 23 42;
+
+    --card: 255 255 255;
+    --card-foreground: 15 23 42;
+
+    --muted: 249 250 251;
+    --muted-foreground: 107 114 128;
+
+    --border: 229 231 235;
+  }
+
+  .dark {
+    --background: 15 23 42;
+    --foreground: 248 250 252;
+
+    --card: 30 41 59;
+    --card-foreground: 248 250 252;
+
+    --muted: 51 65 85;
+    --muted-foreground: 148 163 184;
+
+    --border: 51 65 85;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+
+  .dark * {
+    @apply border-gray-700;
+  }
+
+  body {
+    @apply bg-white text-gray-900 antialiased;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+
+  .dark body {
+    @apply bg-gray-950 text-gray-100;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  /* Custom scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(209 213 219) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    border-radius: 0.25rem;
+    background-color: rgb(209 213 219);
+  }
+
+  .dark .scrollbar-thin {
+    scrollbar-color: rgb(71 85 105) transparent;
+  }
+
+  .dark .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgb(71 85 105);
+  }
+
+  /* Focus visible outline */
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent;
+  }
+
+  /* Glass effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-md;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+  }
+
+  .dark .glass {
+    @apply bg-gray-900/80;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  /* Animated gradient border */
+  .gradient-border {
+    position: relative;
+    border-radius: 1rem;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(135deg, #2563eb, #14b8a6) border-box;
+    border: 2px solid transparent;
+  }
+
+  .dark .gradient-border {
+    background: linear-gradient(rgb(15 23 42), rgb(15 23 42)) padding-box,
+                linear-gradient(135deg, #2563eb, #14b8a6) border-box;
+  }
+
+  /* Container */
+  .container-custom {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  /* Grid pattern background */
+  .grid-pattern {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, rgb(229 231 235 / 0.5) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgb(229 231 235 / 0.5) 1px, transparent 1px);
+  }
+
+  .dark .grid-pattern {
+    background-image: linear-gradient(to right, rgb(51 65 85 / 0.5) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgb(51 65 85 / 0.5) 1px, transparent 1px);
+  }
+
+  /* Hide scrollbar */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
