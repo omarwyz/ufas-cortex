@@ -5,17 +5,7 @@ import { usePathname } from 'next/navigation';
 
 import { Badge } from '@/components/ui';
 import { cn } from '@/lib/utils';
-import {
-  BookOpen,
-  Download,
-  Home,
-  MessageSquare,
-  Search,
-  Settings,
-  Sparkles,
-  Star,
-  User,
-} from 'lucide-react';
+import { BookOpen, Download, Chrome as Home, MessageSquare, Search, Settings, Sparkles, Star, User } from 'lucide-react';
 
 interface SidebarProps {
   className?: string;
